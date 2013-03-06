@@ -19,10 +19,10 @@ Gem::Specification.new do |spec|
   spec.email         = ["elgalu3@gmail.com"]
   spec.homepage      = "https://github.com/elgalu/dolarblue"
 
-  spec.executables   = spec.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
-  spec.files         = `git ls-files`.split($/)
-  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
   spec.require_paths = ["lib"]
+  spec.files         = `git ls-files`.split($/)
+  spec.executables   = spec.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
+  spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
 
   spec.add_runtime_dependency "twitter_anonymous_client", ">= 1.0.2.0"
   spec.add_runtime_dependency "time_ago_in_words", ">= 0.1.0"
