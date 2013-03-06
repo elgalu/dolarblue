@@ -10,33 +10,35 @@
 
 Query Argentine Peso vs US$ exchange values with particular interest in official vs. ilegal (blue) reference prices.
 
+[dolarblue][RubyGems] is a command-line tool to query AR$ vs US$ exchange values.
+
+The term [blue][] denotes an important difference between the [real value][] of Argentine local currency (the argentine peso) versus the official value currently unreacheable to the general public.
+
 ```ruby
 Dolarblue.new
 ```
-
-## Anti-Features
-
-TODO: Write a gem anti-features if any
-
-- Does not do this
-- Does not do that
-- Does not do ...
 
 ## Installation
 
 `$ gem install dolarblue` or add to your [Gemfile][] this line: `gem 'dolarblue'` then run [bundle install][]
 
-## Usage
+## Usage (command-line)
 
-Just `require 'dolarblue'` and then use it as:
+Query latest values
 
-### As a fancy tool
+    $ dolarblue
 
-TODO
+Sample result:
 
-### As a crazy tool
+    Obtaining latest AR$ vs US$ exchange values...
 
-TODO
+    - Official: 5.01 / 5.06  (Updated 11 hours ago)
+    - Blue....: 7.75 / 7.83  (Updated 16 hours ago)
+    - Gap.....: 55%
+
+    Information sources:
+    Official: https://twitter.com/cotizacionhoyar/status/309015878257741825
+    Blue....: https://twitter.com/DolarBlue/status/308966914661695489
 
 ## Contributing
 
@@ -79,3 +81,6 @@ Released under the MIT License. See the [LICENSE][] file for further details.
 [DS img]: https://gemnasium.com/elgalu/dolarblue.png
 [CC img]: https://codeclimate.com/github/elgalu/dolarblue.png
 [CS img]: https://coveralls.io/repos/elgalu/dolarblue/badge.png?branch=master
+
+[blue]:       http://latino.foxnews.com/latino/news/2012/05/19/argentina-currency-black-market-expands/
+[real value]: http://www.buenosairesherald.com/tags/dollar

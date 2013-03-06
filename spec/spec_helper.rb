@@ -7,6 +7,7 @@ SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter[
 ]
 SimpleCov.start
 
+# Internal
 require 'dolarblue'
 
 # Require this file using `require "spec_helper"` within each of your specs

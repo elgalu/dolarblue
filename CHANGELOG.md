@@ -15,4 +15,3 @@
 
 ### Features:
 * Query Argentine Peso vs US$ exchange values with particular interest in official vs. ilegal (blue) reference prices. (Leo Gallucci)
-* TODO: Add more features (Leo Gallucci)
