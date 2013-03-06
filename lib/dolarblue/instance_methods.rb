@@ -24,6 +24,7 @@ class Dolarblue
       @blue.update!
       @official.update!
       print "Done.\n\n"
+      self
     end
 
     def gap

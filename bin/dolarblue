@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require 'dolarblue'
+
+puts Dolarblue.get_output

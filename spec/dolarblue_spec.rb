@@ -87,6 +87,10 @@ Official: https://twitter.com/cotizacionhoyar/status/309289043722637312
 Blue....: https://twitter.com/DolarBlue/status/309326405148233731
       HARDCODED
     end
+
+    it 'has an get_output() class method to retrieve latest values' do
+      Dolarblue.get_output.should match(/Blue/)
+    end
   end
 
 end

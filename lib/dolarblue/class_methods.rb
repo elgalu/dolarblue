@@ -16,5 +16,9 @@ Official: https://twitter.com/cotizacionhoyar/status/309289043722637312
 Blue....: https://twitter.com/DolarBlue/status/309326405148233731
       HARDCODED
     end
+
+    def get_output
+      new.update!.output
+    end
   end
 end
