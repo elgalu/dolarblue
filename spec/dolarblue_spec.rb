@@ -74,20 +74,6 @@ describe Dolarblue do
   end
 
   describe 'ClassMethods' do
-    it 'has a hardcoded sample output as of 2013-03-06' do
-      Dolarblue.sample_output.should == <<-HARDCODED
-Obtaining latest AR$ vs US$ exchange values...Done.
-
-- Official: 5.01 / 5.06  (Updated 2 hours and 38 minutes ago)
-- Blue....: 7.74 / 7.82  (Updated 9 minutes and 56 seconds ago)
-- Gap.....: 55%
-
-Information sources:
-Official: https://twitter.com/cotizacionhoyar/status/309289043722637312
-Blue....: https://twitter.com/DolarBlue/status/309326405148233731
-      HARDCODED
-    end
-
     it 'has an get_output() class method to retrieve latest values' do
       Dolarblue.get_output.should match(/Blue/)
     end

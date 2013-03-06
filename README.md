@@ -14,10 +14,6 @@ Query Argentine Peso vs US$ exchange values with particular interest in official
 
 The term [blue][] denotes an important difference between the [real value][] of Argentine local currency (the argentine peso) versus the official value currently unreacheable to the general public.
 
-```ruby
-Dolarblue.new
-```
-
 ## Installation
 
 `$ gem install dolarblue` or add to your [Gemfile][] this line: `gem 'dolarblue'` then run [bundle install][]
@@ -30,15 +26,15 @@ Query latest values
 
 Sample result:
 
-    Obtaining latest AR$ vs US$ exchange values...
+    Obtaining latest AR$ vs US$ exchange values...Done.
 
-    - Official: 5.01 / 5.06  (Updated 11 hours ago)
-    - Blue....: 7.75 / 7.83  (Updated 16 hours ago)
+    - Official: 5.01 / 5.06  (Updated 48 minutes and 43 seconds ago)
+    - Blue....: 7.74 / 7.82  (Updated 4 hours and 27 minutes ago)
     - Gap.....: 55%
 
     Information sources:
-    Official: https://twitter.com/cotizacionhoyar/status/309015878257741825
-    Blue....: https://twitter.com/DolarBlue/status/308966914661695489
+    Official: https://twitter.com/cotizacionhoyar/status/309381355450560512
+    Blue....: https://twitter.com/DolarBlue/status/309326405148233731
 
 ## Contributing
 

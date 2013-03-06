@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Dolarblue::Exchange do
   let(:screen_name) { 'DolarBlue' }
-  let(:blue) { described_class.new(name: 'Blue', screen_name: screen_name, regexp: /\$(\d+)[\.,](\d+)/, buy_sale_factor: 0.99) }
+  let(:blue) { described_class.new(name: 'Blue', screen_name: screen_name, regexp: /\$(\d+)[\.,](\d+)/, buy_sell_factor: 0.99) }
   let(:blue_tweet) do
     Twitter::Tweet.new({
       id: '309326405148233731',
@@ -37,7 +37,7 @@ describe Dolarblue::Exchange do
   describe 'validation' do
     it 'fails if you try to use it before is valid' do
       expect { blue.buy_value }.to raise_error
-      expect { blue.sale_value }.to raise_error
+      expect { blue.sell_value }.to raise_error
       expect { blue.updated_ago }.to raise_error
       expect { blue.output_values }.to raise_error
       expect { blue.output_link }.to raise_error
@@ -64,8 +64,8 @@ describe Dolarblue::Exchange do
         blue.buy_value.should be > 0
       end
 
-      it 'has a proper sale_value' do
-        blue.sale_value.should be > 0
+      it 'has a proper sell_value' do
+        blue.sell_value.should be > 0
       end
 
       it 'has a proper updated_at' do

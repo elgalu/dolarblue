@@ -10,7 +10,7 @@ class Dolarblue
     # Usually 1%
     #
     # @return [Float] the percentile between 0..1
-    def buy_sale_factor
+    def buy_sell_factor
       Float(0.99)
     end
 

@@ -1,22 +1,9 @@
 class Dolarblue
   module ClassMethods
-    # Provides a sample output string when no arguments nor params are present
+    # Returns all the dollar exchange 'Blue' vs 'Official' values and percentiles
+    #   suitable for user printing
     #
-    # @return [String] the multiline sample content
-    def sample_output
-      <<-HARDCODED
-Obtaining latest AR$ vs US$ exchange values...Done.
-
-- Official: 5.01 / 5.06  (Updated 2 hours and 38 minutes ago)
-- Blue....: 7.74 / 7.82  (Updated 9 minutes and 56 seconds ago)
-- Gap.....: 55%
-
-Information sources:
-Official: https://twitter.com/cotizacionhoyar/status/309289043722637312
-Blue....: https://twitter.com/DolarBlue/status/309326405148233731
-      HARDCODED
-    end
-
+    # @return [String] with all dollar exchange 'Blue' vs 'Official' values
     def get_output
       new.update!.output
     end
