@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Dolarblue::Exchange do
   let(:screen_name) { 'DolarBlue' }
-  let(:blue) { described_class.new(name: 'Blue', screen_name: screen_name, regexp: /\$(\d+)[\.,](\d+)/, buy_sell_factor: 0.99) }
+  let(:blue) { described_class.new('Blue', screen_name, /\$(\d+)[\.,](\d+)/, 0.99) }
   let(:blue_tweet) do
     Twitter::Tweet.new({
       id: '309326405148233731',

@@ -19,7 +19,7 @@ class Dolarblue
     # @return [self]
     #
     # @note Using ruby 2 feature: Keyworded Arguments
-    def initialize(name: nil, screen_name: nil, regexp: nil, buy_sell_factor: nil)
+    def initialize(name, screen_name, regexp, buy_sell_factor)
       fail ArgumentError, "name, screen_name, regexp and buy_sell_factor are all required" unless name && screen_name && regexp && buy_sell_factor
       @name = name
       @screen_name = screen_name

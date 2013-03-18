@@ -8,16 +8,8 @@ class Dolarblue
     # @return [Dolarblue] new instance
     def initialize(config = Configuration.instance)
       fail ArgumentError, "Expected a Dolarblue::Configuration instance as argument" unless config.is_a?(Configuration)
-      @blue = Dolarblue::Exchange.new(
-        name: 'Blue',
-        screen_name: config.blue_screen_name,
-        regexp: config.blue_regexp,
-        buy_sell_factor: config.buy_sell_factor)
-      @official = Dolarblue::Exchange.new(
-        name: 'Official',
-        screen_name: config.official_screen_name,
-        regexp: config.official_regexp,
-        buy_sell_factor: config.buy_sell_factor)
+      @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_factor)
+      @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_factor)
       self
     end
 
