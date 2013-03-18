@@ -28,13 +28,16 @@ Sample result:
 
     Obtaining latest AR$ vs US$ exchange values...Done.
 
-    - Official: 5.01 / 5.06  (Updated 48 minutes and 43 seconds ago)
-    - Blue....: 7.74 / 7.82  (Updated 4 hours and 27 minutes ago)
-    - Gap.....: 55%
+    - Official.......: 5.05 / 5.10  (Updated 28 minutes ago)
+    - Dolar "Tarjeta":  n/a / 6.12  (Updated 28 minutes ago)
+    - Blue...........: 7.97 / 8.05  (Updated 4 hours and 43 minutes ago)
+    - Gap "tarjeta"..: 32%
+    - Gap (official).: 58%
 
     Information sources:
-    Official: https://twitter.com/cotizacionhoyar/status/309381355450560512
-    Blue....: https://twitter.com/DolarBlue/status/309326405148233731
+    Official.......: https://twitter.com/cotizacionhoyar/status/313730158597120001
+    Blue...........: https://twitter.com/DolarBlue/status/313665928757927936
+
 
 ## Contributing
 
