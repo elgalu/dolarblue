@@ -53,16 +53,25 @@ describe Dolarblue do
     describe '#output' do
       it 'has an output with real values' do
         subject.output.should match(/Blue/)
+        subject.output.should match(/Tarjeta/)
       end
     end
 
     describe 'gap values' do
-      it 'has a valid gap value' do
-        subject.gap.should be >= 0
+      it 'has a valid gap card value' do
+        subject.gap_card.should be >= 0
       end
 
-      it 'has a valid gap % value' do
-        subject.gap_percent.should be >= 0
+      it 'has a valid gap card % value' do
+        subject.gap_card_percent.should be >= 0
+      end
+
+      it 'has a valid gap official value' do
+        subject.gap_official.should be >= 0
+      end
+
+      it 'has a valid gap official % value' do
+        subject.gap_official_percent.should be >= 0
       end
     end
   end
@@ -76,6 +85,7 @@ describe Dolarblue do
   describe 'ClassMethods' do
     it 'has an get_output() class method to retrieve latest values' do
       Dolarblue.get_output.should match(/Blue/)
+      Dolarblue.get_output.should match(/Tarjeta/)
     end
   end
 

@@ -43,6 +43,13 @@ class Dolarblue
     def official_regexp
       /[Dd]olar: (\d+)[\.,](\d+)/
     end
+
+    # Dollar "tarjeta" AR fee on top of official value
+    #
+    # @return [Float] the dollar "tarjeta" AR fee to be applied, e.g. 1.2 for an extra 20% charge
+    def card_fee
+      1.2
+    end
   end
 
 end

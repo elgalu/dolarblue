@@ -81,8 +81,8 @@ class Dolarblue
     # @return [String] output exchange values 1 line string
     def output_values
       ensure_valid
-      dots = '.' * (8 - name.size).abs
-      "- #{name}#{dots}: #{buy_value} / #{sell_value}  (Updated #{updated_ago})"
+      dots = '.' * (15 - name.size).abs
+      "- #{name}#{dots}: #{'%.2f' %buy_value} / #{'%.2f' %sell_value}  (Updated #{updated_ago})"
     end
 
     # Return a string suitable for user output with the link to the sources
@@ -90,7 +90,7 @@ class Dolarblue
     # @return [String] output links with sources from which the values where obtained
     def output_link
       ensure_valid
-      dots = '.' * (8 - name.size).abs
+      dots = '.' * (15 - name.size).abs
       "#{name}#{dots}: #{source_url}"
     end
 

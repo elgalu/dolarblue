@@ -8,6 +8,7 @@ class Dolarblue
     # @return [Dolarblue] new instance
     def initialize(config = Configuration.instance)
       fail ArgumentError, "Expected a Dolarblue::Configuration instance as argument" unless config.is_a?(Configuration)
+      @card_fee = config.card_fee
       @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_factor)
       @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_factor)
       self
@@ -34,7 +35,7 @@ class Dolarblue
     # Returns the gap between the real (blue) dollar value versus the official
     #
     # @return [Float] percentile value between 0..1
-    def gap
+    def gap_official
       fail "Need blue and official values to be setup before calculating the gap" unless @blue.sell_value && @blue.sell_value > 0 && @official.sell_value && @official.sell_value > 0
       (@blue.sell_value / @official.sell_value - 1)
     end
@@ -42,8 +43,34 @@ class Dolarblue
     # Returns the gap percentile between the real (blue) dollar value versus the official
     #
     # @return [Float] percentile value between 0..100
-    def gap_percent
-      (gap * 100).round(0)
+    def gap_official_percent
+      (gap_official * 100).round(0)
+    end
+
+    def card_fee_sell_value
+      (@official.sell_value * @card_fee).round(2)
+    end
+
+    # Returns the gap between the real (blue) dollar value versus the dollar "tarjeta" vale
+    #
+    # @return [Float] percentile value between 0..1
+    def gap_card
+      fail "Need blue and official values to be setup before calculating the gap" unless @blue.sell_value && @blue.sell_value > 0 && @official.sell_value && @official.sell_value > 0
+      (@blue.sell_value / card_fee_sell_value - 1)
+    end
+
+    # Returns the gap percentile between the real (blue) dollar value versus the official
+    #
+    # @return [Float] percentile value between 0..100
+    def gap_card_percent
+      (gap_card * 100).round(0)
+    end
+
+    # Return a string suitable for user output about dollar "tarjeta" values
+    #
+    # @return [String] output exchange values 1 line string
+    def card_output_values
+      %Q{- Dolar "Tarjeta":  n/a / #{'%.2f' % card_fee_sell_value}  (Updated #{@official.updated_ago})}
     end
 
     # Output string to be used by the binary `dolarblue`
@@ -52,8 +79,10 @@ class Dolarblue
     def output
       <<-OUTPUT
 #{@official.output_values}
+#{card_output_values}
 #{@blue.output_values}
-- Gap.....: #{gap_percent}%
+- Gap "tarjeta"..: #{gap_card_percent}%
+- Gap (official).: #{gap_official_percent}%
 
 Information sources:
 #{@official.output_link}
