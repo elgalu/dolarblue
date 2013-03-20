@@ -9,8 +9,8 @@ class Dolarblue
     def initialize(config = Configuration.instance)
       fail ArgumentError, "Expected a Dolarblue::Configuration instance as argument" unless config.is_a?(Configuration)
       @card_fee = config.card_fee
-      @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_factor)
-      @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_factor)
+      @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_blue_factor)
+      @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_official_factor)
       self
     end
 

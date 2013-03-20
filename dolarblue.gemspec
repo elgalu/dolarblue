@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.platform      = Gem::Platform::RUBY
   spec.name          = "dolarblue"
   spec.version       = Dolarblue::VERSION
-  spec.summary       = %q{Query Argentine Peso vs US$ exchange values with particular interest in official vs. ilegal (blue) reference prices.}
+  spec.summary       = %q{Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.}
   spec.description   = spec.summary
 
   spec.required_ruby_version     = '>= 1.9.2'

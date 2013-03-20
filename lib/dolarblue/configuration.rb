@@ -6,12 +6,20 @@ class Dolarblue
   class Configuration
     include Singleton
 
-    # Default gap factor between the sale value vs. the buy value
-    # Usually 1%
+    # Default gap factor between the official sale value vs. the buy value
+    # Usually 1.5%
     #
     # @return [Float] the percentile between 0..1
-    def buy_sell_factor
-      Float(0.99)
+    def buy_sell_official_factor
+      Float(0.985)
+    end
+
+    # Default gap factor between the blue sale value vs. the buy value
+    # Usually 4.5%
+    #
+    # @return [Float] the percentile between 0..1
+    def buy_sell_blue_factor
+      Float(0.965)
     end
 
     # Twitter screen name for the `blue` dollar value

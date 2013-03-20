@@ -8,7 +8,7 @@
 
 ## Description
 
-Query Argentine Peso vs US$ exchange values with particular interest in official vs. ilegal (blue) reference prices.
+Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.
 
 [dolarblue][RubyGems] is a command-line tool to query AR$ vs US$ exchange values.
 

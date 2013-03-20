@@ -1,4 +1,4 @@
-## [In git](https://github.com/elgalu/dolarblue/compare/v0.2.0...HEAD)
+## [In git](https://github.com/elgalu/dolarblue/compare/v0.3.0...HEAD)
 
 ### New Features
 * n/a
@@ -8,6 +8,17 @@
 
 ### Chores
 * n/a
+
+## [v0.3.0](https://github.com/elgalu/dolarblue/tree/v0.3.0)
+
+### New Features
+* Split method buy_sell_factor into 2: buy_sell_official_factor & buy_sell_blue_factor. (Leo Gallucci)
+
+### Bug Fixes
+* n/a
+
+### Chores
+* Changed word "ilegal" value for more polite "street" value. (Leo Gallucci)
 
 ## [v0.2.0](https://github.com/elgalu/dolarblue/tree/v0.2.0)
 
