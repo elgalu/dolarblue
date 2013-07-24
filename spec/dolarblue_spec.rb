@@ -29,7 +29,7 @@ describe Dolarblue do
     end
 
     it 'start as invalid right after creation' do
-      subject.should_not be_valid
+      expect(subject).not_to be_valid
     end
 
     it 'fails if you try to use it before is valid' do
@@ -46,46 +46,46 @@ describe Dolarblue do
 
     describe '#update!' do
       it 'becomes valid after calling update!' do
-        subject.should be_valid
+        expect(subject).to be_valid
       end
     end
 
     describe '#output' do
       it 'has an output with real values' do
-        subject.output.should match(/Blue/)
-        subject.output.should match(/Tarjeta/)
+        expect(subject.output).to match(/Blue/)
+        expect(subject.output).to match(/Tarjeta/)
       end
     end
 
     describe 'gap values' do
       it 'has a valid gap card value' do
-        subject.gap_card.should be >= 0
+        expect(subject.gap_card).to be >= 0
       end
 
       it 'has a valid gap card % value' do
-        subject.gap_card_percent.should be >= 0
+        expect(subject.gap_card_percent).to be >= 0
       end
 
       it 'has a valid gap official value' do
-        subject.gap_official.should be >= 0
+        expect(subject.gap_official).to be >= 0
       end
 
       it 'has a valid gap official % value' do
-        subject.gap_official_percent.should be >= 0
+        expect(subject.gap_official_percent).to be >= 0
       end
     end
   end
 
   describe 'constants' do
     it 'should have a version number' do
-      Dolarblue::VERSION.should_not be_nil
+      expect(Dolarblue::VERSION).to_not be_nil
     end
   end
 
   describe 'ClassMethods' do
     it 'has an get_output() class method to retrieve latest values' do
-      Dolarblue.get_output.should match(/Blue/)
-      Dolarblue.get_output.should match(/Tarjeta/)
+      expect(Dolarblue.get_output).to match(/Blue/)
+      expect(Dolarblue.get_output).to match(/Tarjeta/)
     end
   end
 

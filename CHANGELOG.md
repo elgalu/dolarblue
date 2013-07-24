@@ -7,7 +7,7 @@
 * n/a
 
 ### Chores
-* n/a
+* Updated RSpec to use new syntax `expect` and remove `should` [expectation syntax](http://goo.gl/BGxqP). (Leo Gallucci)
 
 ## [v0.3.0](https://github.com/elgalu/dolarblue/tree/v0.3.0)
 

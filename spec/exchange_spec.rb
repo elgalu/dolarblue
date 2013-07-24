@@ -30,7 +30,7 @@ describe Dolarblue::Exchange do
     end
 
     it 'start as invalid right after creation' do
-      blue.should_not be_valid
+      expect(blue).to_not be_valid
     end
   end
 
@@ -51,41 +51,41 @@ describe Dolarblue::Exchange do
 
     describe '#update!' do
       it 'becomes valid after calling update!' do
-        blue.should be_valid
+        expect(blue).to be_valid
       end
     end
 
     describe 'instance methods' do
       it 'has the correct name' do
-        blue.name.should == 'Blue'
+        expect(blue.name).to eq('Blue')
       end
 
       it 'has a proper buy_value' do
-        blue.buy_value.should be > 0
+        expect(blue.buy_value).to be > 0
       end
 
       it 'has a proper sell_value' do
-        blue.sell_value.should be > 0
+        expect(blue.sell_value).to be > 0
       end
 
       it 'has a proper updated_at' do
-        blue.updated_at.should be_a(DateTime)
+        expect(blue.updated_at).to be_a(DateTime)
       end
 
       it 'has a proper updated_ago' do
-        blue.updated_ago.should be_a(String)
+        expect(blue.updated_ago).to be_a(String)
       end
 
       it 'has a source url' do
-        blue.source_url.should be_a(String)
+        expect(blue.source_url).to be_a(String)
       end
 
       it 'has a valid output values string' do
-        blue.output_values.should match(/Blue.*Updated/)
+        expect(blue.output_values).to match(/Blue.*Updated/)
       end
 
       it 'has a valid output link string' do
-        blue.output_link.should match(/Blue.*http.*twitter/)
+        expect(blue.output_link).to match(/Blue.*http.*twitter/)
       end
     end
   end
