@@ -9,36 +9,33 @@
 
 ## Description
 
-Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.
+Get instant notifications about changes on Argentine Peso vs US$ exchange values with particular interest in official vs. street "blue" reference prices.
 
-[dolarblue][RubyGems] is a command-line tool to query AR$ vs US$ exchange values.
+[dolarblue][RubyGems] is a cross-platform System Tray tool that automatically queries AR$ vs US$ exchange values.
 
 The term [blue][] denotes an important difference between the [real value][] of Argentine local currency (the argentine peso) versus the official value currently unreacheable to the general public.
 
+Information source:
+  http://ambito.com/economia/mercados/monedas/dolar/
+
 ## Installation
 
-`$ gem install dolarblue` or add to your [Gemfile][] this line: `gem 'dolarblue'` then run [bundle install][]
+`$ gem install dolarblue`
 
 ## Usage (command-line)
 
-Query latest values
+To start the notification daemon simply run the execution script
 
     $ dolarblue
 
-Sample result:
+Mac OSX sample screenshot (Growl)
+{TODO}
 
-    Obtaining latest AR$ vs US$ exchange values...Done.
+Ubuntu sample screenshot (libnotify)
+{TODO}
 
-    - Official.......: 5.02 / 5.10  (Updated 2 hours ago)
-    - Dolar "Tarjeta":  n/a / 6.12  (Updated 2 hours ago)
-    - Blue...........: 8.44 / 8.75  (Updated 2 hours and 33 minutes ago)
-    - Gap "tarjeta"..: 43%
-    - Gap (official).: 72%
-
-    Information sources:
-    Official.......: https://twitter.com/cotizacionhoyar/status/314454371796660225
-    Blue...........: https://twitter.com/DolarBlue/status/314445874556190720
-
+Windows sample screenshot (GrowlForWindows)
+{TODO}
 
 ## Contributing
 

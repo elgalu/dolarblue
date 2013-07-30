@@ -1,10 +1,13 @@
 ## [In git](https://github.com/elgalu/dolarblue/compare/v0.3.0...HEAD)
 
 ### New Features
-* n/a
+#### **WIP**
+* Turned into an instant changed value notification app using the desktop System Tray. (Leo Gallucci)
+
+* Changed data source from twitter accounts to scraping web data at ambito.com. (Leo Gallucci)
 
 ### Bug Fixes
-* n/a
+* Twitter API v1.0 deprecated
 
 ### Chores
 * Updated RSpec to use new syntax `expect` and remove `should` [expectation syntax](http://goo.gl/BGxqP). (Leo Gallucci)
