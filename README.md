@@ -82,5 +82,5 @@ Released under the MIT License. See the [LICENSE][] file for further details.
 [CC img]: https://codeclimate.com/github/elgalu/dolarblue.png
 [CS img]: https://coveralls.io/repos/elgalu/dolarblue/badge.png?branch=master
 
-[blue]:       http://latino.foxnews.com/latino/news/2012/05/19/argentina-currency-black-market-expands/
+[blue]:       http://es.wikipedia.org/wiki/D%C3%B3lar_blue
 [real value]: http://www.buenosairesherald.com/tags/dollar
