@@ -1,0 +1,19 @@
+---
+strategy:
+  url:  http://ambito.com/economia/mercados/monedas/dolar/
+  blue:
+    buy_xpath:  "//*[@id="contenido"]/div[1]/div[2]/div/div/div[2]/big"
+    sell_xpath: "//*[@id="contenido"]/div[1]/div[2]/div/div/div[3]/big"
+  green:
+    buy_xpath:  ""
+    sell_xpath: "//*[@id="contenido"]/div[3]/div[2]/div/div/div[2]/big"
+  official:
+    buy_xpath:  "//*[@id="contenido"]/div[1]/div[1]/div/div/div[2]/big"
+    sell_xpath: "//*[@id="contenido"]/div[1]/div[1]/div/div/div[3]/big"
+  card:
+    buy_xpath:  ""
+    sell_xpath: "//*[@id="contenido"]/div[4]/div/div/div[2]/big"
+
+# Indicate the number of minutes to run the task
+# Value muest be between 3 (3 minutes) and 10080 (7 days)
+poll_every_minutes: 5

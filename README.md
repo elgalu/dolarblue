@@ -28,14 +28,17 @@ To start the notification daemon simply run the execution script
 
     $ dolarblue
 
-Mac OSX sample screenshot (Growl)
-{TODO}
+| Mac OSX sample screenshot (Growl)           |
+|:-------------------------------------------:|
+| ![mac osx sample](/home/elgalu/oss/dolarblue/images/dolarblue_notify_osx.png "Mac OSX sample") |
 
-Ubuntu sample screenshot (libnotify)
-{TODO}
+| Ubuntu sample screenshot (libnotify)        |
+|:-------------------------------------------:|
+| ![ubuntu sample](/home/elgalu/oss/dolarblue/images/dolarblue_notify_ubuntu.png "Ubuntu sample") |
 
-Windows sample screenshot (GrowlForWindows)
-{TODO}
+| Windows sample screenshot (GrowlForWindows) |
+|:-------------------------------------------:|
+| ![windows sample](/home/elgalu/oss/dolarblue/images/dolarblue_notify_win.png "Windows sample") |
 
 ## Contributing
 

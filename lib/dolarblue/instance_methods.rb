@@ -1,13 +1,15 @@
+require 'configuration'
+
 class Dolarblue
   module InstanceMethods
 
     # Create a new Dolarblue instance to work later on
     #
-    # @param [Configuration] config the configuration instance
+    # @param [Config] config the configuration instance
     #
     # @return [Dolarblue] new instance
-    def initialize(config = Configuration.instance)
-      fail ArgumentError, "Expected a Dolarblue::Configuration instance as argument" unless config.is_a?(Configuration)
+    def initialize(config = Config.instance)
+      fail ArgumentError, "Expected a Dolarblue::Config instance as argument" unless config.is_a?(Config)
       @card_fee = config.card_fee
       @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_blue_factor)
       @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_official_factor)

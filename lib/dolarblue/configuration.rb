@@ -1,63 +1,72 @@
-require 'singleton'
+require 'singleton' #stdlib
+require 'fileutils' #stdlib
+require 'yaml' #stdlib
+
+require 'os' #dolarblue
+if OS.windows?
+	# Open the "Task Scheduler" to check if it is running
+	cmd = 'schtasks'
+	args = "/create /tn Dolarblue /tr dolarblue /sc minute"
+end
 
 class Dolarblue
 
-  # Singleton configuration class
-  class Configuration
+  class Config
     include Singleton
 
-    # Default gap factor between the official sale value vs. the buy value
-    # Usually 1.5%
+    attr_accessor :base_url
+    attr_accessor :poll_every
+    attr_reader :interval
+
+    # Set @poll_every and @interval
     #
-    # @return [Float] the percentile between 0..1
-    def buy_sell_official_factor
-      Float(0.985)
+    # @param [String] value the humanized string interval
+    def poll_every=(value)
+    	@poll_every = value
+  		#TODO convert to ???? type
+  		#@interval = ?
     end
 
-    # Default gap factor between the blue sale value vs. the buy value
-    # Usually 4.5%
-    #
-    # @return [Float] the percentile between 0..1
-    def buy_sell_blue_factor
-      Float(0.965)
+    def default_base_url
+    	"http://ambito.com/economia/mercados/monedas/dolar/"
     end
 
-    # Twitter screen name for the `blue` dollar value
-    #
-    # @return [String] the twitter screen name for the `blue` dollar value
-    def blue_screen_name
-      'DolarBlue'
+    def default_poll_every
+    	"5m"
     end
 
-    # Regular expression to be used to match the Tweet text for `blue` value
-    # In order to extract the integer value from $1 and the decimal value from $2
-    #
-    # @return [Regexp] the regular expression to be used to match the Tweet text for `blue` value
-    def blue_regexp
-      /\$(\d+)[\.,](\d+)/
+    def config_file_path
+    	File.join(File.expand_path('~'), '.dolarblue_config.yml')
     end
 
-    # Twitter screen name for the official (legal) dollar value
-    #
-    # @return [String] the twitter screen name for the official (legal) dollar value
-    def official_screen_name
-      'cotizacionhoyar'
+    def latest_file_path
+    	File.join(File.expand_path('~'), '.dolarblue_latest.yml')
     end
 
-    # Regular expression to be used to match the Tweet text for official value
-    # In order to extract the integer value from $1 and the decimal value from $2
-    #
-    # @return [Regexp] the regular expression to be used to match the Tweet text for official value
-    def official_regexp
-      /[Dd]olar: (\d+)[\.,](\d+)/
-    end
+    class << self
+	    def load_config(c = Config.instance)
+	    	ensure_config_file
+    		yaml = File.read(c.config_file_path)
+    		conf = YAML.load(yaml)
+    		c.base_url = conf['base_url'] || c.default_base_url
+    		c.poll_every = conf['poll_every'] || c.default_poll_every
+	    end
 
-    # Dollar "tarjeta" AR fee on top of official value
-    #
-    # @return [Float] the dollar "tarjeta" AR fee to be applied, e.g. 1.2 for an extra 20% charge
-    def card_fee
-      1.2
-    end
+	    def load_latest(c = Config.instance)
+	    	ensure_latest_file
+	    	#TODO
+	    end
+
+	    def ensure_config_file(c = Config.instance)
+	    	source = ?
+	    	FileUtils.cp(source, c.config_file_path) unless File.exists?(c.config_file_path)
+	    end
+
+	    def ensure_latest_file(c = Config.instance)
+	    	#TODO
+	    end
+  	end
+
   end
 
 end

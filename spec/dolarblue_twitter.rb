@@ -21,10 +21,11 @@ describe Dolarblue do
   before do
     Twitter::Client.stub_chain(:new, :last_tweet).with('DolarBlue').and_return(blue_tweet)
     Twitter::Client.stub_chain(:new, :last_tweet).with('cotizacionhoyar').and_return(official_tweet)
+    # Notify.stub(:notify).and_return(true)
   end
 
   describe '#new' do
-    it 'fails if argument is not a Configuration class' do
+    it 'fails if argument is not a Config class' do
       expect { described_class.new(nil) }.to raise_error(ArgumentError)
     end
 
