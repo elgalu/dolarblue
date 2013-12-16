@@ -22,5 +22,3 @@ unless %w(jruby rbx).include? RUBY_ENGINE
     gem 'pry-debugger'       # adds commands `continue, step, next, finish`
   end
 end
-
-gem 'rubysl' if RUBY_ENGINE == 'rbx'
