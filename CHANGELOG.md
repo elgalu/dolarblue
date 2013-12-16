@@ -9,6 +9,7 @@
 ### Chores
 * Added more specs for increased coverage. (Leo Gallucci)
 * Simplified and improved vcr cassettes usage. (Leo Gallucci)
+* Added specs to test the CLI and went back to successful 100% coverage. (Leo Gallucci)
 
 ## [v0.4.0](https://github.com/elgalu/dolarblue/tree/v0.4.0)
 

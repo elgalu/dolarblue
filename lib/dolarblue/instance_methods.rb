@@ -18,7 +18,6 @@ class Dolarblue
     @blue     = Blue.new
     @official = Official.new
     @card     = Card.new
-    @output   = nil
     self
   end
 
@@ -26,7 +25,6 @@ class Dolarblue
   #
   # @return (see #initialize)
   def update!
-    @output = ''
     base_url = @config.base_url
     fail ArgumentError, "Need base_url configuration to know where to web-scrape from. Current value: #{base_url}" if base_url.empty?
 
@@ -61,7 +59,6 @@ class Dolarblue
   # @return [String] the output with dollar exchange information
   def output
     <<-OUTPUT
-#{@output}
 #{@official.output}
 #{@card.output}
 #{@blue.output}
@@ -88,15 +85,10 @@ Information source:
   end
 
   # Poor man's logger to keep user updated with http get activity
-  #   while allowing to buffer the string while in RSpec test mode
   #
   # @param msg [String] the message to print or buffer
   def log(msg)
-    if defined?(RSpec)
-      @output << msg
-    else
-      print msg
-    end
+    $stdout.print msg
   end
 
 end
