@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    dolarblue (0.4.0)
+    dolarblue (0.4.1.dev)
       configatron (>= 3.0.0.rc2)
       nokogiri (>= 1.6.1)
 

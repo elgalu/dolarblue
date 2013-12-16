@@ -8,6 +8,7 @@
 
 ### Chores
 * Added more specs for increased coverage. (Leo Gallucci)
+* Simplified and improved vcr cassettes usage. (Leo Gallucci)
 
 ## [v0.4.0](https://github.com/elgalu/dolarblue/tree/v0.4.0)
 
