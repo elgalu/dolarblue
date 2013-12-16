@@ -1,7 +1,13 @@
 language: ruby
-before_install:
-  - gem --version
+
 rvm:
   - 1.9.3
   - 2.0.0
-script: 'bundle exec rake'
+  - jruby-1.7.9
+  - rbx-2.2.1
+
+install:
+  - travis_retry bundle install
+
+script:
+  - bundle exec rake

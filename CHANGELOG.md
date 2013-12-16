@@ -1,12 +1,17 @@
-## [In git](https://github.com/elgalu/dolarblue/compare/v0.3.0...HEAD)
+## [In git](https://github.com/elgalu/dolarblue/compare/v0.4.0...HEAD)
+
+* n/a
+
+## [v0.4.0](https://github.com/elgalu/dolarblue/tree/v0.4.0)
 
 ### New Features
-* n/a
+* Changed information source from twitter to ambito.com. (Leo Gallucci)
 
 ### Bug Fixes
-* n/a
+* Twitter anonymous access was discontinued so to avoid the user having to install their API token i moved to web-scraping. (Leo Gallucci)
 
 ### Chores
+* Complete refactor of the app. (Leo Gallucci)
 * Updated RSpec to use new syntax `expect` and remove `should` [expectation syntax](http://goo.gl/BGxqP). (Leo Gallucci)
 
 ## [v0.3.0](https://github.com/elgalu/dolarblue/tree/v0.3.0)

@@ -27,18 +27,18 @@ Query latest values
 
 Sample result:
 
-    Obtaining latest AR$ vs US$ exchange values...Done.
+    Obtaining latest AR$ vs US$ exchange values...Parsing values...
+    Done: 2013-12-15 19:20:41 -0300
 
-    - Official.......: 5.02 / 5.10  (Updated 2 hours ago)
-    - Dolar "Tarjeta":  n/a / 6.12  (Updated 2 hours ago)
-    - Blue...........: 8.44 / 8.75  (Updated 2 hours and 33 minutes ago)
-    - Gap "tarjeta"..: 43%
-    - Gap (official).: 72%
+    - Dollar Official....:  6.25 /  6.30
+    - Dollar Card........:   n/a /  8.50
+    - Dollar Blue........:  9.55 /  9.60
 
-    Information sources:
-    Official.......: https://twitter.com/cotizacionhoyar/status/314454371796660225
-    Blue...........: https://twitter.com/DolarBlue/status/314445874556190720
+    - Gap card.......blue: 13%
+    - Gap official...blue: 52%
 
+    Information source:
+    http://ambito.com/economia/mercados/monedas/dolar/
 
 ## Contributing
 

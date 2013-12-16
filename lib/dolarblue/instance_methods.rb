@@ -1,94 +1,102 @@
+require 'dolarblue/configuration'
+require 'dolarblue/blue'
+require 'dolarblue/official'
+require 'dolarblue/card'
+
+require 'nokogiri' # gem 'nokogiri'
+require 'open-uri' # stdlib
+
 class Dolarblue
-  module InstanceMethods
 
-    # Create a new Dolarblue instance to work later on
-    #
-    # @param [Configuration] config the configuration instance
-    #
-    # @return [Dolarblue] new instance
-    def initialize(config = Configuration.instance)
-      fail ArgumentError, "Expected a Dolarblue::Configuration instance as argument" unless config.is_a?(Configuration)
-      @card_fee = config.card_fee
-      @blue = Dolarblue::Exchange.new('Blue', config.blue_screen_name, config.blue_regexp, config.buy_sell_blue_factor)
-      @official = Dolarblue::Exchange.new('Official', config.official_screen_name, config.official_regexp, config.buy_sell_official_factor)
-      self
-    end
-
-    # Returns current object state, whether valid or not
-    #
-    # @return [true, false] boolean state
-    def valid?
-      @blue.valid? && @official.valid?
-    end
-
-    # Connect to the source and retrieve dollar exchange values
-    #
-    # @return [self]
-    def update!
-      print "Obtaining latest AR$ vs US$ exchange values..."
-      @blue.update!
-      @official.update!
-      print "Done.\n\n"
-      self
-    end
-
-    # Returns the gap between the real (blue) dollar value versus the official
-    #
-    # @return [Float] percentile value between 0..1
-    def gap_official
-      fail "Need blue and official values to be setup before calculating the gap" unless @blue.sell_value && @blue.sell_value > 0 && @official.sell_value && @official.sell_value > 0
-      (@blue.sell_value / @official.sell_value - 1)
-    end
-
-    # Returns the gap percentile between the real (blue) dollar value versus the official
-    #
-    # @return [Float] percentile value between 0..100
-    def gap_official_percent
-      (gap_official * 100).round(0)
-    end
-
-    def card_fee_sell_value
-      (@official.sell_value * @card_fee).round(2)
-    end
-
-    # Returns the gap between the real (blue) dollar value versus the dollar "tarjeta" vale
-    #
-    # @return [Float] percentile value between 0..1
-    def gap_card
-      fail "Need blue and official values to be setup before calculating the gap" unless @blue.sell_value && @blue.sell_value > 0 && @official.sell_value && @official.sell_value > 0
-      (@blue.sell_value / card_fee_sell_value - 1)
-    end
-
-    # Returns the gap percentile between the real (blue) dollar value versus the official
-    #
-    # @return [Float] percentile value between 0..100
-    def gap_card_percent
-      (gap_card * 100).round(0)
-    end
-
-    # Return a string suitable for user output about dollar "tarjeta" values
-    #
-    # @return [String] output exchange values 1 line string
-    def card_output_values
-      %Q{- Dolar "Tarjeta":  n/a / #{'%.2f' % card_fee_sell_value}  (Updated #{@official.updated_ago})}
-    end
-
-    # Output string to be used by the binary `dolarblue`
-    #
-    # @return [String] the output with dollar exchange information
-    def output
-      <<-OUTPUT
-#{@official.output_values}
-#{card_output_values}
-#{@blue.output_values}
-- Gap "tarjeta"..: #{gap_card_percent}%
-- Gap (official).: #{gap_official_percent}%
-
-Information sources:
-#{@official.output_link}
-#{@blue.output_link}
-      OUTPUT
-    end
-
+  # Create a new Dolarblue instance to work later on
+  #
+  # @param config [Configuration] the configuration instance
+  #
+  # @return [Dolarblue] new instance
+  def initialize(config = Configuration.instance)
+    @config   = config.defaults
+    @blue     = Blue.new
+    @official = Official.new
+    @card     = Card.new
+    @output   = nil
+    self
   end
+
+  # Connect to the source and retrieve dollar exchange values
+  #
+  # @return (see #initialize)
+  def update!
+    @output = ''
+    base_url = @config.base_url
+    fail ArgumentError, "Need base_url configuration to know where to web-scrape from. Current value: #{base_url}" if base_url.empty?
+
+    log "Obtaining latest AR$ vs US$ exchange values..."
+    html_file = open(base_url)
+
+    log "Parsing values..."
+    parse_values Nokogiri::HTML(html_file)
+
+    log "\nDone: #{Time.now.localtime}\n"
+    self
+  end
+
+  # Returns the gap percentile (e.g. 60) between the real (blue) dollar value versus the official
+  #
+  # @return [Float] percentile value between 0..100
+  def gap_official_percent
+    gap_official = @blue.sell / @official.sell - 1
+    (gap_official * 100).round(0)
+  end
+
+  # Returns the gap percentile between the real (blue) dollar value versus the official
+  #
+  # @return (see #gap_official_percent)
+  def gap_card_percent
+    gap_card = @blue.sell / @card.sell - 1
+    (gap_card * 100).round(0)
+  end
+
+  # Output string to be used by the binary `dolarblue`
+  #
+  # @return [String] the output with dollar exchange information
+  def output
+    <<-OUTPUT
+#{@output}
+#{@official.output}
+#{@card.output}
+#{@blue.output}
+
+- Gap card.......blue: #{gap_card_percent}%
+- Gap official...blue: #{gap_official_percent}%
+
+Information source:
+#{@config.base_url}
+    OUTPUT
+  end
+
+  private
+
+  # Parse dollar related values using the XPath configured
+  #
+  # @param doc [Nokogiri::HTML] the html document to extract values from
+  #
+  # @return [true, false] boolean If parsed successfully or not
+  def parse_values(doc)
+    [@blue, @official, @card].each do |type|
+      type.extract_values(doc)
+    end
+  end
+
+  # Poor man's logger to keep user updated with http get activity
+  #   while allowing to buffer the string while in RSpec test mode
+  #
+  # @param msg [String] the message to print or buffer
+  def log(msg)
+    if defined?(RSpec)
+      @output << msg
+    else
+      print msg
+    end
+  end
+
 end

@@ -5,34 +5,33 @@ require 'dolarblue/version'
 Gem::Specification.new do |spec|
 
   spec.platform      = Gem::Platform::RUBY
-  spec.name          = "dolarblue"
+  spec.name          = 'dolarblue'
   spec.version       = Dolarblue::VERSION
   spec.summary       = %q{Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.}
   spec.description   = spec.summary
 
   spec.required_ruby_version     = '>= 1.9.3'
-  spec.required_rubygems_version = '>= 2'
+  spec.required_rubygems_version = '>= 1.8.25'
 
   spec.license       = 'MIT'
 
-  spec.authors       = ["Leo Gallucci"]
-  spec.email         = ["elgalu3@gmail.com"]
-  spec.homepage      = "https://github.com/elgalu/dolarblue"
+  spec.authors       = ['Leo Gallucci']
+  spec.email         = ['elgalu3@gmail.com']
+  spec.homepage      = 'https://github.com/elgalu/dolarblue'
 
-  spec.require_paths = ["lib"]
+  spec.require_paths = ['lib']
   spec.files         = `git ls-files`.split($/)
   spec.executables   = spec.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
 
-  spec.add_runtime_dependency "twitter_anonymous_client", ">= 1.0.2.0"
-  spec.add_runtime_dependency "time_ago_in_words", ">= 0.1.0"
+  spec.add_runtime_dependency 'configatron',   '>= 3.0.0.rc2'
+  spec.add_runtime_dependency 'nokogiri',      '>= 1.6.1'
 
-  spec.add_development_dependency "bundler", ">= 1.3"
-  spec.add_development_dependency "rake"
-  spec.add_development_dependency "rspec", "~> 2.14"
-  spec.add_development_dependency "redcarpet", ">= 3"
-  spec.add_development_dependency "yard", ">= 0.8.6.2"
-  spec.add_development_dependency "simplecov", ">= 0.7.1"
-  spec.add_development_dependency "coveralls", ">= 0.6.7"
+  spec.add_development_dependency 'bundler', '>= 1.3.5'
+  spec.add_development_dependency 'rake'
+  spec.add_development_dependency 'rspec', '~> 2.14', '>= 2.14.1'
+  spec.add_development_dependency 'vcr', '~> 2.8', '>= 2.8.0'
+  spec.add_development_dependency 'webmock', '~> 1.16', '>= 1.16.1'
+  spec.add_development_dependency 'rubygems-tasks', '~> 0.2', '>= 0.2.4'
 
 end
