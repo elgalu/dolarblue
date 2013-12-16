@@ -1,6 +1,13 @@
 ## [In git](https://github.com/elgalu/dolarblue/compare/v0.4.0...HEAD)
 
+### New Features
 * n/a
+
+### Bug Fixes
+* n/a
+
+### Chores
+* Added more specs for increased coverage. (Leo Gallucci)
 
 ## [v0.4.0](https://github.com/elgalu/dolarblue/tree/v0.4.0)
 
