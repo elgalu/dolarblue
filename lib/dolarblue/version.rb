@@ -1,3 +1,3 @@
 class Dolarblue
-  VERSION = "0.4.1.dev"
+  VERSION = "0.5.0"
 end
