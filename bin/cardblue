@@ -1,0 +1,7 @@
+#!/usr/bin/env ruby
+require 'dolarblue'
+
+while true
+  $stdout.puts Dolarblue.get_cardblue_output
+  sleep 60*5 # every 5 minutes
+end

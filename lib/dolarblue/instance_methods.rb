@@ -23,18 +23,20 @@ class Dolarblue
 
   # Connect to the source and retrieve dollar exchange values
   #
+  # @param log [Boolean] weather to show log standard outputs or not
+  #
   # @return (see #initialize)
-  def update!
+  def update!(log=true)
     base_url = @config.base_url
     fail ArgumentError, "Need base_url configuration to know where to web-scrape from. Current value: #{base_url}" if base_url.empty?
 
-    log "Obtaining latest AR$ vs US$ exchange values..."
+    log "Obtaining latest AR$ vs US$ exchange values..." if log
     html_file = open(base_url)
 
-    log "Parsing values..."
+    log "Parsing values..." if log
     parse_values Nokogiri::HTML(html_file)
 
-    log "\nDone: #{Time.now.localtime}\n"
+    log "\nDone: #{Time.now.localtime}\n" if log
     self
   end
 
@@ -68,6 +70,27 @@ class Dolarblue
 
 Information source:
 #{@config.base_url}
+    OUTPUT
+  end
+
+  # Output string to be used by the binary `cardblue`
+  #
+  # @return [String] the output with card/dollar exchange info
+  def cardblue_output
+    n = 27
+    bol_discount = 0.97
+    card_delay_add = 1.01
+    payo_discount = 0.967
+    net_ticket = 375
+    sell_ticket = 396.2
+
+    real = (@blue.sell * bol_discount).round(2)
+    profit = n * (real * net_ticket * payo_discount - @card.sell * card_delay_add * sell_ticket)
+    now = Time.now.localtime.strftime("%H:%M:%S")
+
+    <<-OUTPUT
+Card[#{@card.sell_output}] Blue[#{@blue.sell_output}] Gap[#{gap_card_percent}%] #{now}
+#{profit.round(0)}=#{n}*(#{real}*#{net_ticket}*#{payo_discount}-#{@card.sell}*#{card_delay_add}*#{sell_ticket})
     OUTPUT
   end
 
