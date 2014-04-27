@@ -2,9 +2,9 @@ base_url: 'http://ambito.com/economia/mercados/monedas/dolar/'
 
 blue:
   buy:
-    xpath: '//*[@id="contenido"]/div[1]/div[2]/div/div/div[2]/big'
+    xpath: '//*[@id="contenido"]/div[2]/div/div/div[2]/big'
   sell:
-    xpath: '//*[@id="contenido"]/div[1]/div[2]/div/div/div[3]/big'
+    xpath: '//*[@id="contenido"]/div[2]/div/div/div[3]/big'
 
 official:
   buy:
