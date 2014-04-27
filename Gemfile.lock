@@ -84,14 +84,14 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (>= 1.6.2)
+  bundler (~> 1.6, >= 1.6.2)
   coveralls (>= 0.7.0)
   dolarblue!
   pry
   pry-debugger
   pry-doc
   pry-stack_explorer
-  rake
+  rake (~> 10.3, >= 10.3.1)
   redcarpet (>= 3.1.1)
   rspec (~> 2.14, >= 2.14.1)
   rubygems-tasks (~> 0.2, >= 0.2.4)

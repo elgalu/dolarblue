@@ -19,6 +19,7 @@
 
 ### Chores
 * Upgraded gem dependencies and latest Ruby version. (Leo Gallucci)
+* Fix `gem build dolarblue.gemspec` warnings. (Leo Gallucci)
 
 ## [v0.5.0](https://github.com/elgalu/dolarblue/tree/v0.5.0)
 
