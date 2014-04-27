@@ -16,8 +16,8 @@ unless %w(jruby rbx).include? RUBY_ENGINE
   end
 
   group :development do
-    gem 'redcarpet', '>= 3'  # redcarpet doesn't currently works with jruby nor rbx. kramdown is a possible alternative
-    gem 'yard', '>= 0.8.7.3' # no need to generate yard docs from jruby nor rbx
+    gem 'redcarpet', '>= 3.1.1'  # redcarpet doesn't currently works with jruby nor rbx. kramdown is a possible alternative
+    gem 'yard', '>= 0.8.7.4' # no need to generate yard docs from jruby nor rbx
     gem 'pry-stack_explorer' # adds command `show-stack`
     gem 'pry-debugger'       # adds commands `continue, step, next, finish`
   end

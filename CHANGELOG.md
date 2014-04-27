@@ -1,4 +1,26 @@
-## [In git](https://github.com/elgalu/dolarblue/compare/v0.4.0...HEAD)
+## [In git](https://github.com/elgalu/dolarblue/compare/v0.5.1...HEAD)
+
+### New Features
+* n/a
+
+### Bug Fixes
+* n/a
+
+### Chores
+* n/a
+
+## [v0.5.1](https://github.com/elgalu/dolarblue/tree/v0.5.1)
+
+### New Features
+* n/a
+
+### Bug Fixes
+* Fixed xpath selector. (Leo Gallucci)
+
+### Chores
+* Upgraded gem dependencies and latest Ruby version. (Leo Gallucci)
+
+## [v0.5.0](https://github.com/elgalu/dolarblue/tree/v0.5.0)
 
 ### New Features
 * n/a
