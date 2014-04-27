@@ -7,6 +7,9 @@ rvm:
   - jruby-1.7.12
   - rbx-2.2.6
 
+before_install:
+  - gem install bundler
+
 install:
   - travis_retry bundle install
 
