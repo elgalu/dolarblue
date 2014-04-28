@@ -7,7 +7,7 @@
 * n/a
 
 ### Chores
-* n/a
+* Travis fixes. (Leo Gallucci)
 
 ## [v0.5.1](https://github.com/elgalu/dolarblue/tree/v0.5.1)
 

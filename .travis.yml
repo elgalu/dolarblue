@@ -8,7 +8,7 @@ rvm:
   - rbx-2.2.6
 
 before_install:
-  - gem install bundler
+  - travis_retry gem install bundler
 
 install:
   - travis_retry bundle install
