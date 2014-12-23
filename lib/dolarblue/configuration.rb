@@ -12,7 +12,7 @@ class Dolarblue
     #
     # @example Usage
     #   conf = Configuration.instance.defaults
-    #   conf.base_url       #=> "http://ambito.com/economia/mercados/monedas/dolar/"
+    #   conf.base_url       #=> "http://www.ambito.com/economia/mercados/monedas/dolar/"
     #   conf.blue.buy.xpath #=> "//*[@id=\"contenido\"]/div[1]/div[2]/div/div/div[2]/big"
     #
     # @return [Configatron::Store] the magic configuration instance with hash and dot '.' indifferent access

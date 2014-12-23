@@ -2,6 +2,6 @@
 require 'dolarblue'
 
 while true
-  $stdout.puts Dolarblue.get_cardblue_output
+  $stdout.puts Dolarblue.get_bolsabolsa_output
   sleep 60*5 # every 5 minutes
 end

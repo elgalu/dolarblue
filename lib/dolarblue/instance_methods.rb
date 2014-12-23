@@ -1,7 +1,7 @@
 require 'dolarblue/configuration'
 require 'dolarblue/blue'
 require 'dolarblue/official'
-require 'dolarblue/card'
+require 'dolarblue/bolsa'
 
 require 'nokogiri' # gem 'nokogiri'
 require 'open-uri' # stdlib
@@ -17,7 +17,7 @@ class Dolarblue
     @config   = config.defaults
     @blue     = Blue.new
     @official = Official.new
-    @card     = Card.new
+    @bolsa    = Bolsa.new
     self
   end
 
@@ -51,9 +51,9 @@ class Dolarblue
   # Returns the gap percentile between the real (blue) dollar value versus the official
   #
   # @return (see #gap_official_percent)
-  def gap_card_percent
-    gap_card = @blue.sell / @card.sell - 1
-    (gap_card * 100).round(0)
+  def gap_bolsa_percent
+    gap_bolsa = @blue.sell / @bolsa.sell - 1
+    (gap_bolsa * 100).round(0)
   end
 
   # Output string to be used by the binary `dolarblue`
@@ -62,10 +62,10 @@ class Dolarblue
   def output
     <<-OUTPUT
 #{@official.output}
-#{@card.output}
+#{@bolsa.output}
 #{@blue.output}
 
-- Gap card.......blue: #{gap_card_percent}%
+- Gap bolsa......blue: #{gap_bolsa_percent}%
 - Gap official...blue: #{gap_official_percent}%
 
 Information source:
@@ -73,24 +73,24 @@ Information source:
     OUTPUT
   end
 
-  # Output string to be used by the binary `cardblue`
+  # Output string to be used by the binary `bolsablue`
   #
-  # @return [String] the output with card/dollar exchange info
-  def cardblue_output
+  # @return [String] the output with bolsa/dollar exchange info
+  def bolsablue_output
     n = 27
     bol_discount = 0.97
-    card_delay_add = 1.01
+    bolsa_delay_add = 1.01
     payo_discount = 0.967
     net_ticket = 375
     sell_ticket = 396.2
 
     real = (@blue.sell * bol_discount).round(2)
-    profit = n * (real * net_ticket * payo_discount - @card.sell * card_delay_add * sell_ticket)
+    profit = n * (real * net_ticket * payo_discount - @bolsa.sell * bolsa_delay_add * sell_ticket)
     now = Time.now.localtime.strftime("%H:%M:%S")
 
     <<-OUTPUT
-Card[#{@card.sell_output}] Blue[#{@blue.sell_output}] Gap[#{gap_card_percent}%] #{now}
-#{profit.round(0)}=#{n}*(#{real}*#{net_ticket}*#{payo_discount}-#{@card.sell}*#{card_delay_add}*#{sell_ticket})
+Bolsa[#{@bolsa.sell_output}] Blue[#{@blue.sell_output}] Gap[#{gap_bolsa_percent}%] #{now}
+#{profit.round(0)}=#{n}*(#{real}*#{net_ticket}*#{payo_discount}-#{@bolsa.sell}*#{bolsa_delay_add}*#{sell_ticket})
     OUTPUT
   end
 
@@ -102,7 +102,7 @@ Card[#{@card.sell_output}] Blue[#{@blue.sell_output}] Gap[#{gap_card_percent}%] 
   #
   # @return [true, false] boolean If parsed successfully or not
   def parse_values(doc)
-    [@blue, @official, @card].each do |type|
+    [@blue, @official, @bolsa].each do |type|
       type.extract_values(doc)
     end
   end

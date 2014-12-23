@@ -3,13 +3,13 @@ require 'dolarblue/inflector'
 
 class Dolarblue
 
-  # Base class for Blue, Official and Card used to hold sell/buy values functionality
+  # Base class for Blue, Official and Bolsa used to hold sell/buy values functionality
   #
   # @abstract
   class XChange
     attr_reader :buy, :sell
 
-    # Create a new Blue / Official / Card instance to work later on
+    # Create a new Blue / Official / Bolsa instance to work later on
     #
     # @param config [Configuration] the configuration instance
     #
@@ -70,7 +70,7 @@ class Dolarblue
     # Extract individual buy/sell values from a Nokogiri::HTML Document
     #
     # @param doc [Nokogiri::HTML] the html document to extract values from
-    # @param type [String] the dollar type, can be 'blue', 'official', 'card'
+    # @param type [String] the dollar type, can be 'blue', 'official', 'bolsa'
     #
     # @raise [RuntimeError] if unable to proper buy/sell value for current dollar type
     #

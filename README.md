@@ -7,6 +7,8 @@
 [![Coverage Status][CS img]][Coverage Status]
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/4a6a5549e2d3b59f3b59b12ab0ab70e9 "githalytics.com")](http://githalytics.com/elgalu/dolarblue)
 
+**Update**: You may also be intersted in [codealchemist/hubot-dolar-blue][] and [matiu/dolar-blue][]
+
 ## Description
 
 Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.
@@ -28,17 +30,17 @@ Query latest values
 Sample result:
 
     Obtaining latest AR$ vs US$ exchange values...Parsing values...
-    Done: 2013-12-15 19:20:41 -0300
+    Done: 2015-12-18 19:50:28 -0300
 
-    - Dollar Official....:  6.25 /  6.30
-    - Dollar Card........:   n/a /  8.50
-    - Dollar Blue........:  9.55 /  9.60
+    - Dollar Official....: 13.30 / 13.60
+    - Dollar Bolsa.......:   n/a / 13.71
+    - Dollar Blue........: 14.05 / 14.20
 
-    - Gap card.......blue: 13%
-    - Gap official...blue: 52%
+    - Gap bolsa......blue: 4%
+    - Gap official...blue: 4%
 
     Information source:
-    http://ambito.com/economia/mercados/monedas/dolar/
+    http://www.ambito.com/economia/mercados/monedas/dolar/
 
 ## Contributing
 
@@ -84,3 +86,6 @@ Released under the MIT License. See the [LICENSE][] file for further details.
 
 [blue]:       http://latino.foxnews.com/latino/news/2012/05/19/argentina-currency-black-market-expands/
 [real value]: http://www.buenosairesherald.com/tags/dollar
+
+[codealchemist/hubot-dolar-blue]: https://github.com/codealchemist/hubot-dolar-blue
+[matiu/dolar-blue]: https://github.com/matiu/dolar-blue

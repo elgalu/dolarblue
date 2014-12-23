@@ -14,7 +14,7 @@ describe Dolarblue::Inflector do
   end
 
   it 'demodulizes 2-levels nested classes' do
-    expect(subject.demodulize('Dolarblue::Card')).to eq('Card')
+    expect(subject.demodulize('Dolarblue::Bolsa')).to eq('Bolsa')
   end
 
   it 'demodulizes larger 4-levels nested classes' do

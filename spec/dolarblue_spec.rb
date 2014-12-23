@@ -10,9 +10,9 @@ values = %q{\d+\.\d+\s+\/\s+\d+\.\d+}
 start  = '- '
 OUTPUT_MATCHERS = [
   /^#{start}Dollar Official.*#{values}$/,
-  /^#{start}Dollar Card.*n\/a\s+\/\s+\d+\.\d+$/,
+  /^#{start}Dollar Bolsa.*n\/a\s+\/\s+\d+\.\d+$/,
   /^#{start}Dollar Blue.*#{values}$/,
-  /^#{start}Gap card/,
+  /^#{start}Gap bolsa/,
   /^#{start}Gap official/,
   /^Information source:$/
 ]
@@ -34,7 +34,7 @@ describe Dolarblue do
 
     it 'should print out status information about querying base_url and parsing data' do
       (CLI_MATCHERS).each do |regex|
-        $stdout.should_receive(:print).with(regex)
+        expect($stdout).to receive(:print).with(regex)
       end
       load path
     end
@@ -50,7 +50,7 @@ describe Dolarblue do
   context 'Class Methods' do
     subject { Dolarblue }
 
-    it 'should return all the dollar exchange Blue/Official/Card values and percentiles' do
+    it 'should return all the dollar exchange Blue/Official/Bolsa values and percentiles' do
       OUTPUT_MATCHERS.each do |regex|
         expect(subject.get_output).to match(regex)
       end

@@ -13,12 +13,12 @@ class Dolarblue
       new.update!.output
     end
 
-    # Returns all the dollar card exchange 'Blue' vs 'Card' info
+    # Returns all the dollar bolsa exchange 'Blue' vs 'Bolsa' info
     #   suitable for user printing analysis
     #
-    # @return [String] with all dollar exchange 'Blue' vs 'Card' values
-    def get_cardblue_output
-      new.update!(false).cardblue_output
+    # @return [String] with all dollar exchange 'Blue' vs 'Bolsa' values
+    def get_bolsablue_output
+      new.update!(false).bolsablue_output
     end
   end
 end

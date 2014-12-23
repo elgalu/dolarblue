@@ -2,7 +2,7 @@ require 'dolarblue/xchange'
 
 class Dolarblue
   # Class used to hold sell/buy values functionality for dollar "Official"
-  class Card < XChange
+  class Bolsa < XChange
     # Override extract_values since dollar "tarjeta" only has a sell value
     #
     # @param doc [Nokogiri::HTML] the html document to extract values from
