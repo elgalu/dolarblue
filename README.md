@@ -7,6 +7,8 @@
 [![Coverage Status][CS img]][Coverage Status]
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/4a6a5549e2d3b59f3b59b12ab0ab70e9 "githalytics.com")](http://githalytics.com/elgalu/dolarblue)
 
+**Update**: You may also be intersted in https://github.com/matiu/dolar-blue
+
 ## Description
 
 Query Argentine Peso vs US$ exchange values with particular interest in official vs. street (blue) reference prices.
