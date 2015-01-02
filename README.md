@@ -7,7 +7,7 @@
 [![Coverage Status][CS img]][Coverage Status]
 [![githalytics.com alpha](https://cruel-carlota.pagodabox.com/4a6a5549e2d3b59f3b59b12ab0ab70e9 "githalytics.com")](http://githalytics.com/elgalu/dolarblue)
 
-**Update**: You may also be intersted in https://github.com/matiu/dolar-blue
+**Update**: You may also be intersted in [codealchemist/hubot-dolar-blue][] and [matiu/dolar-blue][]
 
 ## Description
 
@@ -86,3 +86,6 @@ Released under the MIT License. See the [LICENSE][] file for further details.
 
 [blue]:       http://latino.foxnews.com/latino/news/2012/05/19/argentina-currency-black-market-expands/
 [real value]: http://www.buenosairesherald.com/tags/dollar
+
+[codealchemist/hubot-dolar-blue]: https://github.com/codealchemist/hubot-dolar-blue
+[matiu/dolar-blue]: https://github.com/matiu/dolar-blue
