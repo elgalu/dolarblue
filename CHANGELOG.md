@@ -1,4 +1,4 @@
-## [In git](https://github.com/elgalu/dolarblue/compare/v0.5.1...HEAD)
+## [In git](https://github.com/elgalu/dolarblue/compare/v0.5.2...HEAD)
 
 ### New Features
 * n/a
@@ -7,6 +7,20 @@
 * n/a
 
 ### Chores
+* n/a
+
+## [v0.5.2](https://github.com/elgalu/dolarblue/tree/v0.5.2)
+
+### New Features
+* n/a
+
+### Bug Fixes
+* Fix source url since they added www. (Leo Gallucci)
+* Move license from MIT to more permissive Apache 2.0
+
+### Chores
+* Upgrade from rspec 2 to rspec 3. (Leo Gallucci)
+* Upgrade Ruby version to 2.2.2.
 * Travis fixes. (Leo Gallucci)
 
 ## [v0.5.1](https://github.com/elgalu/dolarblue/tree/v0.5.1)

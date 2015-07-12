@@ -34,7 +34,7 @@ describe Dolarblue do
 
     it 'should print out status information about querying base_url and parsing data' do
       (CLI_MATCHERS).each do |regex|
-        $stdout.should_receive(:print).with(regex)
+        expect($stdout).to receive(:print).with(regex)
       end
       load path
     end

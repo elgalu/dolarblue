@@ -32,15 +32,15 @@ Sample result:
     Obtaining latest AR$ vs US$ exchange values...Parsing values...
     Done: 2013-12-15 19:20:41 -0300
 
-    - Dollar Official....:  6.25 /  6.30
-    - Dollar Card........:   n/a /  8.50
-    - Dollar Blue........:  9.55 /  9.60
+    - Dollar Official....:  9.09 /  9.14
+    - Dollar Card........:   n/a / 12.33
+    - Dollar Blue........: 13.45 / 13.60
 
-    - Gap card.......blue: 13%
-    - Gap official...blue: 52%
+    - Gap card.......blue: 10%
+    - Gap official...blue: 49%
 
     Information source:
-    http://ambito.com/economia/mercados/monedas/dolar/
+    http://www.ambito.com/economia/mercados/monedas/dolar/
 
 ## Contributing
 
